@@ -1,0 +1,17 @@
+use sys_clientes;
+
+CREATE TABLE CLIENTES(
+	id_cliente int(6) NOT NULL auto_increment,
+	Nome_cliente varchar(60),
+	CPF_cliente varchar(13),
+	primary key(id_cliente)
+);
+
+CREATE TABLE DEPENDENTES(
+	Id_dependente int(6) NOT NULL auto_increment,
+	Nome_dependente VARCHAR(60),
+	Idade_dependente int (3),
+	Cliente_dependente int (6),
+	primary key(id_dependente),
+	FOREIGN KEY (Cliente_dependente) REFERENCES clientes(id_cliente)
+);
