@@ -43,6 +43,16 @@ body {
     vertical-align: top;
     border: 2px solid black;
   }
+  .div03{
+    margin-left: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1px 1px;
+    text-align: right;
+    display: inline-block;
+    vertical-align: top;
+    border: 2px solid black;
+  }
 
   table, th, td {
     border: 1px solid;

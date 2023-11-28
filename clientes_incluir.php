@@ -9,7 +9,10 @@
 
 <body>
     <h1>Tela de consulta clientes</h1>
-
+    
+    <div class="div03">
+        <form action="index.php">
+            <button type="submit" style="background-color:red;">Voltar</button></form></div>
     <div class="div02">
         <form action="clientes_consultar.php">
             <button type="submit">Consultar clientes</button></form></div>
