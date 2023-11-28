@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css\teste01.css">
+    <link rel="stylesheet" href="css\style01.css">
     <title>Icaro CRUD PHP</title>
 </head>
 
@@ -14,6 +14,6 @@
         <form action="clientes_consultar.php">
             <button type="submit">Consultar Clientes</button></form></div>
     <div class="div01">
-        <form action="dependentes.php">
+        <form action="dependentes_consultar.php">
             <button type="submit">Consultar Dependentes</button></form></div>
 <body>

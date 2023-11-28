@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css\teste01.css">
+    <link rel="stylesheet" href="css\style01.css">
     <title>Icaro CRUD PHP</title>
 </head>
 
