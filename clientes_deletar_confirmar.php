@@ -11,8 +11,8 @@
     <h1>Tela de consulta clientes</h1>
 
     <div class="div02">
-        <form action="clientes_deletar.php">
-            <button type="submit">Voltar</button></form></div>
+        <form action="clientes_consultar.php">
+            <button type="submit">Sair</button></form></div>
     <?php
         session_start();
         include('conexao.php');

@@ -12,19 +12,13 @@
     
     <div class="div03">
         <form action="index.php">
-            <button type="submit" style="background-color:red;">Voltar</button></form></div>
+            <button type="submit" style="background-color:red;">Sair</button></form></div>
     <div class="div02">
         <form action="clientes_consultar.php">
             <button type="submit">Consultar clientes</button></form></div>
     <div class="div02">
         <form action="clientes_incluir.php">
             <button type="submit">Incluir clientes</button></form></div>
-    <div class="div02">
-        <form action="clientes_alterar.php">
-            <button type="submit">Alterar clientes</button></form></div>
-    <div class="div02">
-        <form action="clientes_deletar.php">
-            <button type="submit">Deletar clientes</button></form></div>
             
     <form method="post">
         Name: <input type="text" name="name" required><br>
