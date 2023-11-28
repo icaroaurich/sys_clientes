@@ -11,7 +11,7 @@
     <h1>Tela de consulta clientes</h1>
 
     <div class="div02">
-        <form action="clientes.php">
+        <form action="clientes_consultar.php">
             <button type="submit">Consultar clientes</button></form></div>
     <div class="div02">
         <form action="clientes_incluir.php">
@@ -45,6 +45,7 @@
             $tabela .= '<th>ID</th>'; // colunas do cabeçalho
             $tabela .= '<th>Nome</th>';
             $tabela .= '<th>CPF</th>';
+            $tabela .= '<th>Excluir</th>';
             $tabela .= '</tr>';//fecha linha
             $tabela .='</thead>'; //fecha cabeçalho
             $tabela .='<tbody>';//abre corpo da tabela
@@ -52,16 +53,17 @@
         /*Se você tiver um loop para exibir os dados ele deve ficar aqui*/
         while($row = mysqli_fetch_assoc($QueryGetClientesResult)) {
             $tabela .= '<tr>'; // abre uma linha
-            $tabela .= '<td>'.$row["id_cliente"].'</td>'; // coluna ID
+            $tabela .= '<td><a href="clientes_alterar.php?id='.$row['id_cliente']. '">'.$row['id_cliente']. '</a></td>';
             $tabela .= '<td>'.$row['nome_cliente'].'</td>'; //coluna Nome
             $tabela .= '<td>'.$row['cpf_cliente'].'</td>'; // coluna CPF
+            $tabela .= '<td><a href="clientes_deletar_confirmar.php?id='.$row['id_cliente']. '">'.$row['id_cliente']. '</a></td>';
             $tabela .= '</tr>'; // fecha linha        
            }
         /*loop deve terminar aqui*/
         $tabela .='</tbody>'; //fecha corpo
         $tabela .= '</table>';//fecha tabela
 
-    echo $tabela; // imprime
+        echo $tabela; // imprime
     ?>
 
 </body>

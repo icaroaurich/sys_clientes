@@ -11,7 +11,7 @@
     <h1>Tela de selecao</h1>
 
     <div class="div01">
-        <form action="clientes.php">
+        <form action="clientes_consultar.php">
             <button type="submit">Consultar Clientes</button></form></div>
     <div class="div01">
         <form action="dependentes.php">

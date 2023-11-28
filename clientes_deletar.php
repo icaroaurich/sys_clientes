@@ -23,25 +23,8 @@
         <form action="clientes_deletar.php">
             <button type="submit">Deletar clientes</button></form></div>
             
-    <form method="post">
-        Name: <input type="text" name="name" required><br>
-        cpf: <input type="text" name="cpf" required><br>
+    <form action="clientes_deletar_confirmar.php" method="post">
+        ID: <input type="text" name="id" id="id" ><br>
             <input type="submit"></form>
-
-    <?php
-        include('conexao.php');
-        if ($_POST['name'] == '' or $_POST['cpf'] == ''){echo "Conteudo invalido!";}
-        else {
-            echo $_POST['name'];
-            echo "<br>";
-            echo $_POST['cpf'];
-            echo "<br>";
-
-            $query = "insert into clientes (nome_cliente,cpf_cliente) values ('".$_POST['name']."','".$_POST['cpf']."');";
-            $QueryGetClientesResult = mysqli_query($conexao,$query);
-            if ($QueryGetClientesResult == 1){echo "Cliente inserido com sucesso!";};
-        }
-
-    ?>
 
 </body>
