@@ -19,12 +19,6 @@
     <div class="div02">
         <form action="dependentes_incluir.php">
             <button type="submit">Incluir dependentes</button></form></div>
-    <div class="div02">
-        <form action="dependentes_alterar.php">
-            <button type="submit">Alterar dependentes</button></form></div>
-    <div class="div02">
-        <form action="dependentes_deletar.php">
-            <button type="submit">Deletar dependentes</button></form></div>
             
     <form method="post">
         Name: <input type="text" name="name"><br>
@@ -73,7 +67,7 @@
             $tabela .= '<td>'.$row['nome_dependente'].'</td>'; //       Nome
             $tabela .= '<td>'.$row['idade_dependente'].'</td>'; //      Idade
             $tabela .= '<td>'.$row['nome_cliente'].'</td>'; //          Cliente
-            $tabela .= '<td><a href="clientes_deletar_confirmar.php?id='.$row['id_dependente']. '">'.$row['id_dependente']. '</a></td>';
+            $tabela .= '<td><a href="dependentes_deletar_confirmar.php?id='.$row['id_dependente']. '"><img src="image\lixeira.ico"></a></td>';
             $tabela .= '</tr>';        
            }
 

@@ -11,14 +11,14 @@
     <h1>Tela de consulta clientes</h1>
 
     <div class="div02">
-        <form action="clientes_consultar.php">
+        <form action="dependentes_consultar.php">
             <button type="submit">Sair</button></form></div>
     <?php
         session_start();
         include('conexao.php');
         //echo "aqui: " . $_GET['id'];
         if ($_GET['id'] != ''){
-            $QueryGetClientes = "select id_cliente, nome_cliente, cpf_cliente from clientes where id_cliente = '".$_GET['id']."';";
+            $QueryGetClientes = "select id_dependente, nome_dependente, idade_dependente,cliente_dependente from dependentes where id_dependente = '".$_GET['id']."';";
             $QueryGetClientesResult = mysqli_query($conexao,$QueryGetClientes);
 
         //crie uma variável para receber o código da tabela
@@ -27,7 +27,8 @@
             $tabela .= '<tr>';//abre uma linha
             $tabela .= '<th>ID</th>'; // colunas do cabeçalho
             $tabela .= '<th>Nome</th>';
-            $tabela .= '<th>CPF</th>';
+            $tabela .= '<th>Idade</th>';
+            $tabela .= '<th>Responsavel</th>';
             $tabela .= '</tr>';//fecha linha
             $tabela .='</thead>'; //fecha cabeçalho
             $tabela .='<tbody>';//abre corpo da tabela
@@ -35,9 +36,10 @@
         /*Se você tiver um loop para exibir os dados ele deve ficar aqui*/
         while($row = mysqli_fetch_assoc($QueryGetClientesResult)) {
             $tabela .= '<tr>'; // abre uma linha
-            $tabela .= '<td>'.$row["id_cliente"].'</td>'; // coluna ID
-            $tabela .= '<td>'.$row['nome_cliente'].'</td>'; //coluna Nome
-            $tabela .= '<td>'.$row['cpf_cliente'].'</td>'; // coluna CPF
+            $tabela .= '<td>'.$row["id_dependente"].'</td>'; // coluna ID
+            $tabela .= '<td>'.$row['nome_dependente'].'</td>'; //coluna Nome
+            $tabela .= '<td>'.$row['idade_dependente'].'</td>'; // coluna CPF
+            $tabela .= '<td>'.$row['cliente_dependente'].'</td>'; // coluna CPF
             $tabela .= '</tr>'; // fecha linha        
            }
         /*loop deve terminar aqui*/
@@ -51,7 +53,7 @@
 
     <div class="div02">
     <input type="text" name=teste disabled hidden value=<?php echo $_GET['id']?>><br>
-        <form action="clientes_deletar_confirmado.php" method="post" id=<?php $_GET['id']?>>
+        <form action="dependentes_deletar_confirmado.php" method="post" id=<?php $_GET['id']?>>
             <p>Favor informar novamente o codigo do cliente</p> 
             
             <input type="text" name="id" id="id" ><br>
