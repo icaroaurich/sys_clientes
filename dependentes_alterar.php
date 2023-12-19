@@ -53,7 +53,7 @@
     <h1>Tela de consulta clientes</h1>
 
     <div class="div03">
-        <form action="index.php">
+        <form action="index.html">
             <button type="submit" style="background-color:red;">Sair</button></form></div>
     <div class="div02">
         <form action="dependentes_consultar.php">

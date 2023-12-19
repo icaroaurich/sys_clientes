@@ -1,5 +1,5 @@
 01 - Pq ao criar a tabela CLIENTES o campo CPF é um VARCHAR de 13 e não de 11?
 02 - Pq um VARCHAR(13) em vez de int?
-03 - Não sei fazer index
+03 - Não sei fazer �ndice
 04 - Posso criar um usuário sem nome, pois os requisitos do bd não disseram nome not null
 05 - 
