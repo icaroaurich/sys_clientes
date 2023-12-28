@@ -9,11 +9,13 @@
 </head>
 
 <body>
-    <h1>Tela de consulta clientes</h1>
+    <div class="p-1 mb-2 bg-primary text-white">
+        <h1 class="text-center">Tela de consultar clientes</h1>
+    </div>
 
-    <div class="div02">
-        <form action="clientes_consultar.php">
-            <button type="submit">Sair</button></form></div>
+    <div class="btn-group mb-4" role="group">
+        <a href="clientes_consultar.php" class="btn btn-primary" aria-current="page">Voltar</a>
+    </div>
     <?php
         session_start();
         include('conexao.php');
