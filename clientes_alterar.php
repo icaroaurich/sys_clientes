@@ -46,7 +46,7 @@
     ?>
 
     <div class="p-1 mb-2 bg-primary text-white">
-        <h1 class="text-center">Tela de consultar clientes</h1>
+        <h1 class="text-center">Tela de alterar clientes</h1>
     </div>
 
     <div class="btn-group mb-4" role="group">
@@ -58,15 +58,15 @@
     <form method="post" class="fs-5">
         <div class="input-group mb-1">
             <label for="floatingInputGroup1">ID: </label>
-            <input type="text" class="form-control" id="floatingInputGroup1" name="id" id="id" disabled value='<?php echo $_GET['id'] ; ?>'>
+            <input type="text" class="form-control" id="floatingInputGroup1" name="id" id="id" disabled required value='<?php echo $_GET['id'] ; ?>'>
         </div>
         <div class="input-group mb-1">
             <label for="floatingInputGroup2">Nome: </label>
-            <input type="text" class="form-control" id="floatingInputGroup2" name="Nome" id="nome" value='<?php echo $nome; ?>'>
+            <input type="text" class="form-control" id="floatingInputGroup2" name="Nome" id="nome" required value='<?php echo $nome; ?>'>
         </div>
         <div class="input-group mb-1">
             <label for="floatingInputGroup3">CPF: </label>
-            <input type="text" class="form-control" id="floatingInputGroup3" name="CPF" id="cpf" value='<?php echo $cpf; ?>'>
+            <input type="text" class="form-control" id="floatingInputGroup3" name="CPF" id="cpf" required value='<?php echo $cpf; ?>'>
         </div>
         <div class="d-grid gap-2 col-1 mx-auto">
             <input class="btn btn-primary" type="submit">

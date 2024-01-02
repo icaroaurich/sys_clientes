@@ -9,40 +9,52 @@
 </head>
 
 <body>
-    <h1>Tela de consulta clientes</h1>
-    
-    <div class="div03">
-        <form action="index.html">
-            <button type="submit" style="background-color:red;">Sair</button></form></div>
-    <div class="div02">
-        <form action="dependentes_consultar.php">
-            <button type="submit">Consultar dependentes</button></form></div>
-    <div class="div02">
-        <form action="dependentes_incluir.php">
-            <button type="submit">Incluir dependentes</button></form></div>
-            
-    <form method="post">
-        Name: <input type="text" name="name" required><br>
-        idade: <input type="text" name="idade" required><br>
-        Responsavel: <input type="text" name="cliente" required><br>
-            <input type="submit"></form>
+    <div class="p-1 mb-2 bg-success text-white">
+        <h1 class="text-center">Tela de incluir dependentes</h1>
+    </div>
+
+    <div class="btn-group mb-4" role="group">
+        <a href="index.html"                class="btn btn-danger"  aria-current="page">Sair</a>
+        <a href="dependentes_consultar.php" class="btn btn-success" aria-current="page">Consultar dependentes</a>
+        <a href="dependentes_incluir.php"   class="btn btn-success" aria-current="page">Incluir dependentes</a>
+    </div>
+
+    <form method="post" class="fs-5">
+        <div class="input-group mb-2">
+            <label for="floatingInputGroup1">Nome do dependente:</label>
+            <input type="text" class="form-control" id="floatingInputGroup1" name="name" placeholder="Nome" required>
+        </div>
+        <div class="input-group mb-2">
+            <label for="floatingInputGroup2">Idade do dependente:</label>
+            <input type="text" class="form-control" id="floatingInputGroup2" name="idade" placeholder="Idade" required>
+        </div>
+        <div class="input-group mb-3">
+            <label for="floatingInputGroup3">Responsavel do dependente:</label>
+            <input type="text" class="form-control" id="floatingInputGroup3" name="cliente" placeholder="Codigo" required>
+        </div>
+        <div class="d-grid gap-3 col-6 mx-auto">
+            <input class="btn btn-success" type="submit" value="Incluir" >
+        </div>
+    </form>
 
     <?php
         include('conexao.php');
-        if ($_POST['name'] == '' or $_POST['idade'] == ''){echo "Conteudo invalido!";}
+        if ($_POST['name'] == '' or $_POST['idade'] == ''){echo "
+            <div class='alert alert-warning' role='alert'>
+                Algo de errado nao esta certo!
+            </div>
+            ";}
         else {
-            echo $_POST['name'];
-            echo "<br>";
-            echo $_POST['idade'];
-            echo "<br>";
-            echo $_POST['cliente'];
-
             $query = "insert into dependentes 
             (nome_dependente,idade_dependente,cliente_dependente) values 
             ('".$_POST['name']."','".$_POST['idade']."','".$_POST['cliente']."');";
 
             $QueryGetClientesResult = mysqli_query($conexao,$query);
-            if ($QueryGetClientesResult == 1){echo "Dependente inserido com sucesso!";};
+            if ($QueryGetClientesResult == 1){echo "
+                <div class='alert alert-success' role='alert'>
+                    Cliente inserido com sucesso!
+                </div>
+                ";};
         }
 
     ?>

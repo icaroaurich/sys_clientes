@@ -28,7 +28,11 @@
             $idade  = $row['idade_dependente'];
             $cliente  = $row['cliente_dependente'];
 
-            $resultado = 'Dependente nao foi alterado ainda!';
+            $resultado = '
+            <div class="alert alert-warning" role="alert">
+                Dependente ainda nao foi alterado
+            </div>
+            ';
     ?>
     <?php 
         if ($_POST['nome'] == null){}
@@ -46,31 +50,44 @@
             $idade = $_POST['idade'];
             $cliente = $_POST['cliente'];
 
-            $resultado = 'Dependente alterado!';
+            $resultado = '
+                <div class="alert alert-success" role="alert">
+                    Dependente alterado!
+                </div>
+            ';
         }
     ?>
 
-    <h1>Tela de consulta clientes</h1>
+    <div class="p-1 mb-2 bg-success text-white">
+        <h1 class="text-center">Tela de alterar dependentes</h1>
+    </div>
 
-    <div class="div03">
-        <form action="index.html">
-            <button type="submit" style="background-color:red;">Sair</button></form></div>
-    <div class="div02">
-        <form action="dependentes_consultar.php">
-            <button type="submit">Consultar dependentes</button></form></div>
-    <div class="div02">
-        <form action="dependentes_incluir.php">
-            <button type="submit">Incluir dependentes</button></form></div>
-            
-    <h2>Alterar dados do dependente</h2>
-
-    <form method="post">
-        
-        ID:         <input type="text" name="id"        id="id" disabled value='<?php echo $_GET['id'] ; ?>'><br>
-        Nome:       <input type="text" name="nome"      id="nome"        value='<?php echo $nome; ?>'><br>
-        Idade:      <input type="text" name="idade"     id="idade"       value='<?php echo $idade; ?>'><br>
-        Resposavel: <input type="text" name="cliente"   id="cliente"     value='<?php echo $cliente; ?>'><br>
-        <input type="submit">
+    <div class="btn-group mb-4" role="group">
+        <a href="index.html"                class="btn btn-danger"  aria-current="page">Sair</a>
+        <a href="dependentes_consultar.php" class="btn btn-success" aria-current="page">Consultar dependentes</a>
+        <a href="dependentes_incluir.php"   class="btn btn-success" aria-current="page">Incluir dependentes</a>
+    </div>
+    
+    <form method="post" class="fs-5">
+        <div class="input-group mb-1">
+            <label for="floatingInputGroup1">ID: </label>
+            <input type="text" class="form-control" id="floatingInputGroup1" name="id" id="id" disabled required value='<?php echo $_GET['id'] ; ?>'>
+        </div>
+        <div class="input-group mb-1">
+            <label for="floatingInputGroup2">Nome: </label>
+            <input type="text" class="form-control" id="floatingInputGroup2" name="nome" id="nome" required value='<?php echo $nome; ?>'>
+        </div>
+        <div class="input-group mb-1">
+            <label for="floatingInputGroup3">Idade: </label>
+            <input type="text" class="form-control" id="floatingInputGroup3" name="idade" id="idade" required value='<?php echo $idade; ?>'>
+        </div>
+        <div class="input-group mb-1">
+            <label for="floatingInputGroup4">Responsavel: </label>
+            <input type="text" class="form-control" id="floatingInputGroup4" name="cliente" id="cliente" required value='<?php echo $cliente; ?>'>
+        </div>
+        <div class="d-grid gap-2 col-1 mx-auto">
+            <input class="btn btn-success" type="submit">
+        </div>
     </form>
         <?php echo $resultado; ?>
         

@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <div class="p-1 mb-2 bg-primary text-white">
-        <h1 class="text-center">Tela de consultar clientes</h1>
+    <div class="p-1 mb-2 bg-danger text-white">
+        <h1 class="text-center">Tela de deletar clientes</h1>
     </div>
 
     <div class="btn-group mb-4" role="group">
@@ -25,7 +25,7 @@
             $QueryGetClientesResult = mysqli_query($conexao,$QueryGetClientes);
 
         //crie uma variável para receber o código da tabela
-            $tabela = '<table border="1">';//abre table
+            $tabela = '<table border="1" class="table table-bordered table-striped border-danger">';//abre table
             $tabela .='<thead>';//abre cabeçalho
             $tabela .= '<tr>';//abre uma linha
             $tabela .= '<th>ID</th>'; // colunas do cabeçalho
@@ -53,31 +53,29 @@
     ?>
 
     <div class="div02">
-    <input type="text" name=teste disabled hidden value=<?php echo $_GET['id']?>><br>
-        <form action="clientes_deletar_confirmado.php" method="post" id=<?php $_GET['id']?>>
+        <input type="text" name=teste disabled hidden value=<?php echo $_GET['id']?>><br>
+        <form action="clientes_deletar_confirmado.php" method="post" id=<?php $_GET['id']?>>   
+
+        <div class="d-grid gap-2 col-3 mx-auto">
             <p>Favor informar novamente o codigo do cliente</p> 
-            
             <input type="text" name="id" id="id" ><br>
-            <button type="submit" class="botaoCliente" disabled>Apagar cliente</button>
-        
-            <script type="text/javascript">
-	            let postid = document.querySelector('input[name="id"]');
-                let getid = document.querySelector('input[name="teste"]');
-	            let botao  = document.querySelector('.botaoCliente');
+            <button type="submit" class="btn btn-danger" name=botao disabled>Apagar cliente</button>
+        </div>            
+        <script type="text/javascript">
+	        let postid = document.querySelector('input[name="id"]');
+            let getid =  document.querySelector('input[name="teste"]');
+	        let botao  = document.querySelector('[name="botao"]');
 
-	            postid.addEventListener('input', function(){
-		            verificaCampos();
-	            });
+	        postid.addEventListener('input', function(){
+	           verificaCampos();
+	        });
 
-	            function verificaCampos() {
-		            if(postid.value == getid.value)
-			            botao.disabled = false;
-		            else
-			            botao.disabled = true;
+	        function verificaCampos() {
+	            if(postid.value == getid.value)
+	                botao.disabled = false;
+		        else
+		            botao.disabled = true;
                 }
-
             </script>
         </form></div>
-    
-
 </body>

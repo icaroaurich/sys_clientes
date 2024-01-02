@@ -2,32 +2,31 @@
 
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <title>Icaro CRUD PHP</title>
 </head>
 
 <body>
-    <h1>Tela de consulta dependentes</h1>
+    <div class="p-1 mb-2 bg-success text-white">
+        <h1 class="text-center">Tela de consulta dependentes</h1>
+    </div>
 
-    <div class="div03">
-        <form action="index.html">
-            <button type="submit" style="background-color:red;">Voltar</button></form></div>
-    <div class="div02">
-        <form action="dependentes_consultar.php">
-            <button type="submit">Consultar dependentes</button></form></div>
-    <div class="div02">
-        <form action="dependentes_incluir.php">
-            <button type="submit">Incluir dependentes</button></form></div>
-            
-    <form method="post">
-        Name: <input type="text" name="name"><br>
-            <input type="submit"></form>
+    <div class="btn-group mb-4" role="group">
+        <a href="index.html"                class="btn btn-danger"  aria-current="page">Sair</a>
+        <a href="dependentes_consultar.php" class="btn btn-success" aria-current="page">Consultar dependentes</a>
+        <a href="dependentes_incluir.php"   class="btn btn-success" aria-current="page">Incluir dependentes</a>
+    </div>
+
+    <form method="post" class="fs-5">
+        <div class="input-group mb-4">
+            <label for="floatingInputGroup1">Nome do dependente/responsavel: </label>
+            <input type="text" class="form-control" id="floatingInputGroup1" name="name" placeholder="Nome">
+        </div>
+    </form>
 
     <?php
         include('conexao.php');
-        echo $_POST['name'];
         if ($_POST['name'] != ''){
             $QueryGetClientes = "select 
                 id_dependente, 
@@ -50,7 +49,7 @@
         $QueryGetClientesResult = mysqli_query($conexao,$QueryGetClientes);
 
         // Tabela
-            $tabela = '<table border="1">';
+            $tabela = '<table border="1" class="table table-bordered table-striped border-success">';
             $tabela .='<thead>';
             $tabela .= '<tr>';
             $tabela .= '<th>ID</th>'; //            ID
@@ -64,7 +63,7 @@
 
         while($row = mysqli_fetch_assoc($QueryGetClientesResult)) {
             $tabela .= '<tr>';
-            $tabela .= '<td><a href="dependentes_alterar.php?id='.$row['id_dependente']. '">'.$row['id_dependente']. '</a></td>';
+            $tabela .= '<td><a class="btn btn-success" href="dependentes_alterar.php?id='.$row['id_dependente']. '">'.$row['id_dependente']. '</a></td>';
             $tabela .= '<td>'.$row['nome_dependente'].'</td>'; //       Nome
             $tabela .= '<td>'.$row['idade_dependente'].'</td>'; //      Idade
             $tabela .= '<td>'.$row['nome_cliente'].'</td>'; //          Cliente
